@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row">
+  <div class="col-xs-12" style='text-align:center;'>
+    <h1>Django Videos</h1>
+    <b>by <a href="https://rmotr.com">rmotr.com</a></b>
+  </div>
+</div>
+<!-- Portfolio Item Heading -->
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">Featured Video</h1>
+    </div>
+</div>
+<!-- /.row -->
+
+<!-- Portfolio Item Row -->
+<div class="row">
+    <div class="col-md-8">
+        <img class="img-responsive" src="http://placehold.it/750x500" alt="">
+    </div>
+
+    <div class="col-md-4">
+        <h3>Django in Depth <br><small>James Bennett</small></h3>
+        <p>An in depth exploartion of advanced features on the Django Framework</p>
+        <span class="label label-default">pycon-us</span>
+        <span class="label label-primary">2015</span>
+        <span class="label label-success">Testing</span>
+        <p style='margin-top: 10px'>
+          <a href="#">Permalink</a>
+        </p>
+
+    </div>
+
+</div>
+<!-- /.row -->
+
+<!-- Related Projects Row -->
+<div class="row">
+    <div class="col-lg-12">
+        <h3 class="page-header">Featured Frontend Projects</h3>
+    </div>
+    {% for i in THINGS %}
+    <div class="col-sm-3 col-xs-6">
+      <h3 style='text-align: center'>Django in Depth</h3>
+        <a href="#">
+            <img class="img-responsive portfolio-item" src="http://placehold.it/500x300" alt="">
+        </a>
+        <h4 style='text-align: center'><small>James Bennett</small></h4>
+        <span class="label label-default">pycon-us</span>
+        <span class="label label-primary">2015</span>
+        <span class="label label-success">Testing</span>
+    </div>
+    {% endfor %}
+</div>
+<div class="row">
+    <div class="col-lg-12">
+        <h3 class="page-header">Featured Testing Projects</h3>
+    </div>
+    {% for i in THINGS %}
+    <div class="col-sm-3 col-xs-6">
+      <h3 style='text-align: center'>Django in Depth</h3>
+        <a href="#">
+            <img class="img-responsive portfolio-item" src="http://placehold.it/500x300" alt="">
+        </a>
+        <h4 style='text-align: center'><small>James Bennett</small></h4>
+        <span class="label label-default">pycon-us</span>
+        <span class="label label-primary">2015</span>
+        <span class="label label-success">Testing</span>
+    </div>
+    {% endfor %}
+</div>
+<!-- /.row -->
+{% endblock %}
