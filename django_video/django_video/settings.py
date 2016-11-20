@@ -12,13 +12,11 @@ https://docs.djangoproject.com/en/1.10/ref/settings/
 
 import os
 
-# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+# django-video/django_video
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-# django-video/django_video
-DJANGO_PROJECT_DIR = os.path.dirname(BASE_DIR)
-# django-video/
-PROJECT_DIR = os.path.dirname(DJANGO_PROJECT_DIR)
+# django-video
+PROJECT_DIR = os.path.dirname(BASE_DIR)
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
@@ -60,7 +58,7 @@ ROOT_URLCONF = 'django_video.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(DJANGO_PROJECT_DIR, "templates")],
+        'DIRS': [os.path.join(PROJECT_DIR, "templates")],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -124,3 +122,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
 STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    os.path.join(PROJECT_DIR, "static"),
+]

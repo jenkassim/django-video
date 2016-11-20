@@ -70,6 +70,5 @@ node_modules/
 
 # Static files
 gulp_dist/
-static/
 
 .DS_Store
