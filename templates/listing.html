@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header"><strong>{{ listing.name }} -</strong> Videos</h1>
+    </div>
+</div>
+<div class="row">
+  {% for video in videos %}
+    <div class="col-sm-3 col-xs-6 category-featured-video-container">
+      <h6 class='video-title'>{{ video.title }}</h6>
+        {% include 'partials/youtube-embed-iframe.html' with video=video %}
+        <h4 class='speaker-name'><small>{{ video.speaker.full_name }}</small></h4>
+        <div>
+          {% include 'partials/video-badges.html' with video=video %}
+        </div>
+    </div>
+  {% endfor %}
+</div>
+{% endblock %}

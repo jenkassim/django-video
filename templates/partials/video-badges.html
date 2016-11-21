@@ -1,5 +1,5 @@
-<span class="label label-default">{{ video.conference.slug }}</span>
+<a href="{% url 'curated_videos:conference-listing' video.conference.slug %}"><span class="label label-default">{{ video.conference.slug }}</span></a>
 <span class="label label-primary">{{ video.year }}</span>
 {% for category in video.categories.all %}
-  <span class="label label-success">{{ category.name }}</span>
+  <a href="{% url 'curated_videos:category-listing' category.slug %}"><span class="label label-success">{{ category.name }}</span></a>
 {% endfor %}
