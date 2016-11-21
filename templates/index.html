@@ -18,7 +18,7 @@
 
 <div class="row" class='home-featured-video-container'>
     <div class="col-md-8">
-        {% include 'partials/youtube-embed-iframe.html' with embed_url=home_featured_video.youtube_embed_url %}
+        {% include 'partials/youtube-embed-iframe.html' with video=home_featured_video %}
     </div>
     <div class="col-md-4">
         <h3>{{home_featured_video.title}} <br><small>{{ home_featured_video.speaker.full_name }}</small></h3>
@@ -39,7 +39,7 @@
         {% for video in category.featured_videos %}
         <div class="col-sm-3 col-xs-6 category-featured-video-container">
           <h6 class='video-title'>{{ video.title }}</h6>
-            {% include 'partials/youtube-embed-iframe.html' with embed_url=video.youtube_embed_url%}
+            {% include 'partials/youtube-embed-iframe.html' with video=video %}
             <h4 class='speaker-name'><small>{{ video.speaker.full_name }}</small></h4>
             <div>
               {% include 'partials/video-badges.html' with video=video %}
