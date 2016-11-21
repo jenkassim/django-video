@@ -1,0 +1,33 @@
+body {
+    padding-top: 20px;
+}
+
+.category-featured-home {
+    margin-bottom: 25px;
+}
+.video-title{
+    margin: 0px;
+    display:inline;
+    vertical-align: bottom;
+    font-family: 'Yellowtail', cursive;
+    color: #045235;
+    left: -5px;
+    position: relative;
+    top: -10px;
+    font-size: 70px;
+    letter-spacing: 2px;
+}
+
+.logo-title-container{
+  text-align:center;
+  padding-top:10px
+}
+.logo-title-container .logo{
+  width: 250px;
+}
+.curated-legend{
+  margin-top: 10px;
+}
+footer {
+    /*margin: 50px 0;*/
+}
