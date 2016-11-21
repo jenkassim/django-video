@@ -7,6 +7,8 @@ class Speaker(models.Model):
     last_name = models.CharField(max_length=200)
     email = models.EmailField(max_length=450, blank=True, null=True)
 
+    github_handle = models.CharField(
+        max_length=200, blank=True, null=True)
     twitter_handle = models.CharField(max_length=200, blank=True, null=True)
     facebook_profile_url = models.URLField(
         max_length=1500, blank=True, null=True)
@@ -25,6 +27,10 @@ class Category(models.Model):
     name = models.CharField(max_length=200)
     slug = models.SlugField()
     is_featured = models.BooleanField(default=False)
+
+    @property
+    def featured_videos(self):
+        return self.videos.filter(featured_category=True)
 
     def __str__(self):
         return self.name

@@ -1,11 +1,18 @@
+html {
+  font-size: 62.5%; }
 body {
-    padding-top: 20px;
-}
+  padding-top: 20px;
+  font-size: 1.5em; /* currently ems cause chrome bug misinterpreting rems on body element */
+  line-height: 1.6;
+  font-weight: 400;
+  font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #222; }
 
-.category-featured-home {
-    margin-bottom: 25px;
+.logo-title-container{
+  text-align:center;
+  padding-top:10px
 }
-.video-title{
+.logo-title-container .logo-video-title{
     margin: 0px;
     display:inline;
     vertical-align: bottom;
@@ -18,16 +25,45 @@ body {
     letter-spacing: 2px;
 }
 
-.logo-title-container{
-  text-align:center;
-  padding-top:10px
-}
 .logo-title-container .logo{
   width: 250px;
 }
 .curated-legend{
   margin-top: 10px;
 }
+.home-featured-video-container .permalink{
+  margin-top: 10px;
+}
+.category-featured-home {
+    margin-bottom: 25px;
+}
+
+.category-featured-video-container{
+  text-align: center;
+}
+.category-featured-video-container .video-title{
+  margin-bottom: 5px;
+  width: 90%;
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.category-featured-video-container .speaker-name{
+  margin-bottom: 5px;
+}
+/* Typography
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 0;
+  margin-bottom: 2rem;
+  font-weight: 300; }
+h1 { font-size: 4.0rem; line-height: 1.2;  letter-spacing: -.1rem;}
+h2 { font-size: 3.6rem; line-height: 1.25; letter-spacing: -.1rem; }
+h3 { font-size: 3.0rem; line-height: 1.3;  letter-spacing: -.1rem; }
+h4 { font-size: 2.4rem; line-height: 1.35; letter-spacing: -.08rem; }
+h5 { font-size: 1.8rem; line-height: 1.5;  letter-spacing: -.05rem; }
+h6 { font-size: 1.5rem; line-height: 1.6;  letter-spacing: 0; }
+
 footer {
     /*margin: 50px 0;*/
 }

@@ -4,7 +4,7 @@
 <div class="row">
   <div class="col-xs-12 logo-title-container">
     <img class='logo' src="{% static "images/django-logo-positive.png" %}" alt='Django logo'>
-    <h1 class='video-title'>.video</h1>
+    <h1 class='logo-video-title'>.video</h1>
     <p class='curated-legend'><b>curated by <a href="https://rmotr.com">rmotr.com</a></b></p>
   </div>
 </div>
@@ -16,43 +16,38 @@
 </div>
 <!-- /.row -->
 
-<div class="row">
+<div class="row" class='home-featured-video-container'>
     <div class="col-md-8">
-        {% include 'partials/youtube-embed-iframe.html' with width='750' height='500' embed_url=home_featured_video.youtube_embed_url%}
+        {% include 'partials/youtube-embed-iframe.html' with embed_url=home_featured_video.youtube_embed_url %}
     </div>
     <div class="col-md-4">
         <h3>{{home_featured_video.title}} <br><small>{{ home_featured_video.speaker.full_name }}</small></h3>
         <p>{{ home_featured_video.description }}</p>
-        <span class="label label-default">{{ home_featured_video.conference.slug }}</span>
-        <span class="label label-primary">{{ home_featured_video.year }}</span>
-        {% for category in home_featured_video.categories.all %}
-          <span class="label label-success">{{ category.name }}</span>
-        {% endfor %}
-        <p style='margin-top: 10px'>
+        {% include 'partials/video-badges.html' with video=home_featured_video %}
+        <p style='permalink'>
           <a href="#">Permalink</a>
         </p>
     </div>
 </div>
 <!-- /.row -->
-
-{% for i in "x"|rjust:"1" %}
-  <div class="row">
-      <div class="col-lg-12">
-          <h3 class="page-header">Featured Frontend Projects</h3>
-      </div>
-      {% for i in "x"|rjust:"4" %}
-      <div class="col-sm-3 col-xs-6">
-        <h3 style='text-align: center'>Django in Depth</h3>
-          <a href="#">
-              <img class="img-responsive category-featured-home" src="http://placehold.it/260x150" alt="">
-          </a>
-          <h4 style='text-align: center'><small>James Bennett</small></h4>
-          <span class="label label-default">pycon-us</span>
-          <span class="label label-primary">2015</span>
-          <span class="label label-success">Testing</span>
-      </div>
-      {% endfor %}
-  </div>
+{% for category in featured_categories %}
+  {% if category.featured_videos %}
+    <div class="row">
+        <div class="col-lg-12">
+            <h4 class="page-header"><strong>{{category.name}} -</strong> Featured Videos</h4>
+        </div>
+        {% for video in category.featured_videos %}
+        <div class="col-sm-3 col-xs-6 category-featured-video-container">
+          <h6 class='video-title'>{{ video.title }}</h6>
+            {% include 'partials/youtube-embed-iframe.html' with embed_url=video.youtube_embed_url%}
+            <h4 class='speaker-name'><small>{{ video.speaker.full_name }}</small></h4>
+            <div>
+              {% include 'partials/video-badges.html' with video=video %}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+  {% endif %}
 {% endfor %}
 
 <!-- /.row -->

@@ -1,0 +1,5 @@
+<span class="label label-default">{{ video.conference.slug }}</span>
+<span class="label label-primary">{{ video.year }}</span>
+{% for category in video.categories.all %}
+  <span class="label label-success">{{ category.name }}</span>
+{% endfor %}
