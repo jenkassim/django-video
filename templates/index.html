@@ -18,14 +18,16 @@
 
 <div class="row">
     <div class="col-md-8">
-        <img class="img-responsive" src="http://placehold.it/750x500" alt="">
+        {% include 'partials/youtube-embed-iframe.html' with width='750' height='500' embed_url=home_featured_video.youtube_embed_url%}
     </div>
     <div class="col-md-4">
-        <h3>Django in Depth <br><small>James Bennett</small></h3>
-        <p>An in depth exploartion of advanced features on the Django Framework</p>
-        <span class="label label-default">pycon-us</span>
-        <span class="label label-primary">2015</span>
-        <span class="label label-success">Testing</span>
+        <h3>{{home_featured_video.title}} <br><small>{{ home_featured_video.speaker.full_name }}</small></h3>
+        <p>{{ home_featured_video.description }}</p>
+        <span class="label label-default">{{ home_featured_video.conference.slug }}</span>
+        <span class="label label-primary">{{ home_featured_video.year }}</span>
+        {% for category in home_featured_video.categories.all %}
+          <span class="label label-success">{{ category.name }}</span>
+        {% endfor %}
         <p style='margin-top: 10px'>
           <a href="#">Permalink</a>
         </p>
@@ -33,7 +35,7 @@
 </div>
 <!-- /.row -->
 
-{% for i in "x"|rjust:"2" %}
+{% for i in "x"|rjust:"1" %}
   <div class="row">
       <div class="col-lg-12">
           <h3 class="page-header">Featured Frontend Projects</h3>
@@ -42,7 +44,7 @@
       <div class="col-sm-3 col-xs-6">
         <h3 style='text-align: center'>Django in Depth</h3>
           <a href="#">
-              <img class="img-responsive category-featured-home" src="http://placehold.it/500x300" alt="">
+              <img class="img-responsive category-featured-home" src="http://placehold.it/260x150" alt="">
           </a>
           <h4 style='text-align: center'><small>James Bennett</small></h4>
           <span class="label label-default">pycon-us</span>

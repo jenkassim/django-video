@@ -13,8 +13,12 @@ class Speaker(models.Model):
     youtube_profile_url = models.URLField(
         max_length=1500, blank=True, null=True)
 
-    def __str__(self):
+    @property
+    def full_name(self):
         return "{} {}".format(self.first_name, self.last_name)
+
+    def __str__(self):
+        return self.full_name
 
 
 class Category(models.Model):
@@ -37,7 +41,7 @@ class Conference(models.Model):
 
 class Video(TimeStampedModel):
     title = models.CharField(max_length=200)
-    youtube_url = models.URLField(max_length=1500)
+    youtube_video_id = models.CharField(max_length=200)
     speaker = models.ForeignKey(Speaker)
     description = models.TextField(blank=True, null=True)
 
@@ -46,6 +50,16 @@ class Video(TimeStampedModel):
     categories = models.ManyToManyField(Category, related_name='videos')
 
     featured_category = models.BooleanField(default=False)
+
+    @property
+    def youtube_watch_url(self):
+        return "https://www.youtube.com/watch?v={}".format(
+            self.youtube_video_id)
+
+    @property
+    def youtube_embed_url(self):
+        return "https://www.youtube.com/embed/{}".format(
+            self.youtube_video_id)
 
     def __str__(self):
         return "{title} - {speaker} ({conference} {year})".format(
