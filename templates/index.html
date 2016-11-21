@@ -21,10 +21,10 @@
         {% include 'partials/youtube-embed-iframe.html' with video=home_featured_video %}
     </div>
     <div class="col-md-4">
-        <h3>{{home_featured_video.title}} <br><small>{{ home_featured_video.speaker.full_name }}</small></h3>
+        <h3 class='title-and-speaker'>{{home_featured_video.title}} <br><small>{{ home_featured_video.speaker.full_name }}</small></h3>
         <p>{{ home_featured_video.description }}</p>
         {% include 'partials/video-badges.html' with video=home_featured_video %}
-        <p style='permalink'>
+        <p class='permalink'>
           <a href="#">Permalink</a>
         </p>
     </div>

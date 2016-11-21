@@ -31,8 +31,11 @@ body {
 .curated-legend{
   margin-top: 10px;
 }
-.home-featured-video-container .permalink{
+.permalink{
   margin-top: 10px;
+}
+.title-and-speaker{
+  margin-bottom: 5px;
 }
 .category-featured-home {
     margin-bottom: 25px;
