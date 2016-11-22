@@ -1,5 +1,5 @@
 from django.views.generic import TemplateView
-from .models import Video, HomeFeaturedVideo, Category, Conference
+from .models import Video, HomeFeaturedVideo, Category, Conference, Speaker
 from django.shortcuts import get_object_or_404
 
 
@@ -20,12 +20,20 @@ class HomePageView(TemplateView):
 class SlugListingView(TemplateView):
     template_name = 'listing.html'
     MODEL_CLASS = None
+    DEFAULT_ARUGMENT_NAME = 'slug'
+
+    def get_obj_display_name(self, obj):
+        return obj.name
 
     def get_context_data(self, **kwargs):
         context = super(SlugListingView, self).get_context_data(**kwargs)
-        slug = kwargs['slug']
-        listing = get_object_or_404(self.MODEL_CLASS, slug=slug)
+        filter_argument = kwargs[self.DEFAULT_ARUGMENT_NAME]
+        filter_criteria = {
+            self.DEFAULT_ARUGMENT_NAME: filter_argument
+        }
+        listing = get_object_or_404(self.MODEL_CLASS, **filter_criteria)
         context['listing'] = listing
+        context['display_listing_name'] = self.get_obj_display_name(listing)
         context['videos'] = self.get_videos(listing)
         return context
 
@@ -35,6 +43,17 @@ class CategoryListingView(SlugListingView):
 
     def get_videos(self, obj):
         return obj.videos.all()
+
+
+class SpeakerListingView(SlugListingView):
+    MODEL_CLASS = Speaker
+    DEFAULT_ARUGMENT_NAME = 'id'
+
+    def get_obj_display_name(self, obj):
+        return obj.full_name
+
+    def get_videos(self, obj):
+        return Video.objects.filter(speaker=obj)
 
 
 class ConferenceListingView(SlugListingView):
