@@ -1,2 +1,6 @@
 Django==1.10.3
 django-model-utils==2.6
+psycopg2
+whitenoise==3.2.2
+gunicorn==19.6.0
+dj-database-url==0.4.1
