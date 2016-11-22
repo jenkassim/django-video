@@ -1,0 +1,19 @@
+{% extends "bare.html" %}
+{% block body %}
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-md-6 col-md-offset-3">
+      <h1>About</h1>
+      <hr>
+      <p><a href="/">django.video</a> 📹 is a collection of curated videos about the <a href="https://www.djangoproject.com">Django Web Framework</a> put together by people from <strong><a href="https://rmotr.com">rmotr.com</a></strong> 🐶.</p>
+      <p>As part of our <a href="https://rmotr.com/web-development-with-django">Web Development with Django</a> course, we give our students good resources from different Django conferences. Django has an amazing community and experts from everywhere give talks about different topics. 🙌</p>
+      <p>It's also a good resource for beginners to see a simple site implemented with Django. <strong>Feel free to use this project as a learning resource</strong> 🤓.</p>
+      <p>This is an free and open source project, developed with <a href="https://www.python.org/">Python 3</a> and <a href="https://www.djangoproject.com">Django</a>. If you're interested checkout the <a href="https://github.com/rmotr/django-video">Github project page</a>. It's ready to be deployed on <a href="https://www.heroku.com">Heroku</a>, we'll build a guide on how to do it soon, <a href="https://twitter.com/rmotr_com">stay tunned</a>.</p>
+      <p>Finally, if you have any question, feel free to contact us at <a href="mailto:questions@rmotr.com">questions@rmotr.com</a> 📫 and follow us on <a href="https://twitter.com/rmotr_com">twitter</a> 🐦.</p>
+    </div>
+  </div>
+
+  {% include 'partials/footer.html' with extra_classes="sticky"%}
+</div>
+
+{% endblock %}

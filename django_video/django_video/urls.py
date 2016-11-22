@@ -6,7 +6,7 @@ urlpatterns = [
     # Admin
     url(r'^admin/', admin.site.urls),
 
-    # url(r'^$', TemplateView.as_view(template_name="index.html")),
+    url(r'^about$', TemplateView.as_view(template_name="about.html"), name='about'),
     url(r'^', include('curated_videos.urls', namespace="curated_videos")),
 
 
