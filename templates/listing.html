@@ -11,7 +11,7 @@
     <div class="col-sm-3 col-xs-6 category-featured-video-container">
       <h6 class='video-title'>{{ video.title }}</h6>
         {% include 'partials/youtube-embed-iframe.html' with video=video %}
-        <h4 class='speaker-name'><small>{{ video.speaker.full_name }}</small></h4>
+        <h4 class='speaker-name'><small><a href="{% url 'curated_videos:speaker-listing' video.speaker.id %}">{{ video.speaker.full_name }}</a></small></h4>
         <div>
           {% include 'partials/video-badges.html' with video=video %}
         </div>

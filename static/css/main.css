@@ -28,6 +28,9 @@ body {
 .logo-title-container .logo{
   width: 250px;
 }
+.logo-link:hover {
+  text-decoration: none;
+}
 .curated-legend{
   margin-top: 10px;
 }
